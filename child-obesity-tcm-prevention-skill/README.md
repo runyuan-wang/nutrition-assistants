@@ -1,41 +1,155 @@
-# 儿童青少年肥胖治未病食养助手 🌐 International Edition
+# 儿童青少年肥胖治未病食养助手 (TCM Preventive Treatment for Childhood Obesity)
 
-Global-ready AI nutrition科普 assistants based on the China Association of Chinese Medicine's *Guideline for Preventive Treatment of Diseases in Obesity of Children and Adolescents* (2026).
+基于中华中医药学会《儿童青少年肥胖治未病干预指南》（2026年）的AI科普对话助手。
+
+## 概览
+
+| 项目 | 内容 |
+|------|------|
+| 指南全称 | 儿童青少年肥胖治未病干预指南 |
+| 发布机构 | 中华中医药学会 |
+| 期刊 | 中华中医药杂志 2026年第41卷第6期 |
+| 基金项目 | 中华中医药学会团体标准项目（No.20230706-BZ-CACM） |
+| 版本 | v1.0.0 |
+| 作者 | 王润圆（中国注册营养师，昆明医科大学营养与食品卫生学硕士） |
+| 蒸馏方法论 | 营养学知识蒸馏方法论 v2.0 |
+| 许可证 | MIT |
+| 语言 | 中文 / English / 日本語 |
+
+## 知识库规模
+
+| 类别 | 数量 | 说明 |
+|------|------|------|
+| KPK知识点 | 13个 | KPK-01~13，覆盖流行病学→健康教育 |
+| 中医体质 | 7种 | 平和质、气虚质、阳虚质、痰湿质、湿热质、气郁质、阳热质 |
+| 中医证型 | 4种 | 脾虚湿阻证、胃热湿阻证、脾肾两虚证、肝郁脾虚证 |
+| 治未病分期 | 4期 | 未病先防→欲病救萌→既病防变→瘥后防复 |
+| 药膳方 | 11个 | 7种体质对应，含材料、做法、功效、禁忌 |
+| 外治法 | 3种 | 耳穴贴压（B级）、推拿（C级）、针刺（C级） |
+
+## 适用人群
+
+- 18周岁以下**单纯性肥胖**人群的治未病干预
+- 不适用于由内分泌、遗传、神经系统等疾病所致的继发性肥胖
+- 适用于中医院、中西医结合医院、综合医院的临床医师参考
+- 面向家长的中医食养科普参考
+
+## KPK知识体系
+
+### 基础与诊断（KPK-01~05）
+
+| KPK | 标题 |
+|-----|------|
+| KPK-01 | 肥胖定义与流行病学（定义、流行率、危害、关键术语） |
+| KPK-02 | 危险因素筛查（遗传20%~40%、不良膳食行为、活动不足、心理因素） |
+| KPK-03 | 中医病因病机（四大病因、本虚标实、脾虚湿盛为核心） |
+| KPK-04 | 7种中医体质辨识（平和/气虚/阳虚/痰湿/湿热/气郁/阳热） |
+| KPK-05 | 诊断标准（西医BMI+中医4证型辨证） |
+
+### 治未病干预（KPK-06~10）
+
+| KPK | 标题 |
+|-----|------|
+| KPK-06 | 治未病四期概述（未病先防→欲病救萌→既病防变→瘥后防复） |
+| KPK-07 | 未病先防——膳食（《黄帝内经》原则+《中国居民膳食指南2022》） |
+| KPK-08 | 未病先防——运动与生活方式（各年龄段运动量+睡眠建议+视屏限制） |
+| KPK-09 | 欲病救萌——超重患儿的辨体调理（上）（平和/气虚/阳虚/痰湿质） |
+| KPK-10 | 欲病救萌——超重患儿的辨体调理（下）（湿热/气郁/阳热质） |
+
+### 治疗与教育（KPK-11~13）
+
+| KPK | 标题 |
+|-----|------|
+| KPK-11 | 既病防变——中药内服（4证型推荐方药+加减+膳食管理+宏量营养素比例） |
+| KPK-12 | 既病防变——外治法（耳穴贴压/推拿/针刺，含选穴+手法+周期） |
+| KPK-13 | 五维健康教育（心理/家庭/医院/学校/社会） |
+
+## 7种中医体质一览
+
+| 体质类型 | 一句话特征 | 面部 | 舌象 |
+|---------|-----------|------|------|
+| 平和质 | 健康平衡型 | 面色润泽 | 舌淡红，苔薄白 |
+| 气虚质 | 气力不足型 | 面色萎黄或㿠白 | 舌体胖大，边有齿痕 |
+| 阳虚质 | 怕冷型 | 面色无华 | 舌淡胖嫩，边有齿痕 |
+| 痰湿质 | 湿气重型 | 面部油脂多 | 舌胖大有齿痕，苔白腻 |
+| 湿热质 | 湿热夹杂型 | 面垢油光 | 舌质偏红，苔黄腻 |
+| 气郁质 | 情绪不畅型 | 忧郁面貌 | 舌淡红，苔薄白 |
+| 阳热质 | 火气旺型 | 面赤唇红 | 舌质红，苔黄或白 |
+
+## 4种中医证型
+
+| 证型 | 核心表现 | 治法 | 推荐方药 |
+|------|---------|------|---------|
+| 脾虚湿阻证 | 疲乏无力，肢体困重，大便黏腻 | 健脾益气，化湿消脂 | 参苓白术散合平胃散加减 |
+| 胃热湿阻证 | 消谷善饥，口臭，大便秘结 | 清胃泄热，除湿利水 | 泻黄散加味 |
+| 脾肾两虚证 | 动则气短，腰酸腿软，畏寒肢冷 | 健脾益气，补肾温阳 | 苓桂术甘汤合真武汤加减 |
+| 肝郁脾虚证 | 急躁易怒，胸胁胀闷，失眠多梦 | 疏肝理气，健脾助运 | 柴胡疏肝散加味 / 逍遥散加减 |
+
+## 运动与睡眠建议
+
+| 年龄段 | 每日运动 | 每日睡眠 |
+|--------|---------|---------|
+| 1~2岁 | — | 11~14 h |
+| 3~5岁 | 60 min | 10~13 h |
+| 6~12岁（学龄期） | 60 min 中高强度 | 9~12 h |
+| 13~18岁（青春期） | ≥90 min 中等强度，每周≥3 d 高强度 | 8~10 h |
+| 视屏时间 | <2 h/天 | — |
+
+## 诊断标准
+
+| 年龄段 | 参考标准 | 超重 | 肥胖 |
+|--------|---------|------|------|
+| 0~5岁 | WS/T 423 | +1SD≤BMI<+2SD | +2SD≤BMI<+3SD |
+| 6~18岁 | WS/T 586 | 按性别年龄BMI界值点判定 | 同左 |
+
+## 国际化版本
+
+| 语言 | 目录 | 文件 |
+|------|------|------|
+| 🇨🇳 中文 | 根目录 | SKILL.md · knowledge_base.md · dietary_formulas.md · system_prompt.md |
+| 🇬🇧 English | `en/` | SKILL.md · knowledge_base.md · system_prompt.md |
+| 🇯🇵 日本語 | `ja/` | SKILL.md · system_prompt.md |
+
+## 文件结构
+
+```
+├── skill.yaml              # Skill元数据配置
+├── README.md               # 本文档
+├── SKILL.md                # Skill入口文件（四维配置+场景应答）
+├── system_prompt.md        # 可直接部署的系统提示词
+├── knowledge_base.md       # 完整知识库（13个KPK知识点）
+├── dietary_formulas.md     # 11道药膳方（7种体质对应）
+├── en/                     # 🇬🇧 英文版
+│   ├── SKILL.md
+│   ├── knowledge_base.md
+│   └── system_prompt.md
+├── ja/                     # 🇯🇵 日文版
+│   ├── SKILL.md
+│   └── system_prompt.md
+├── install.sh              # Linux/Mac安装脚本
+└── install.bat             # Windows安装脚本
+```
+
+## 安装与使用
+
+### 命令行安装
+
+```bash
+# Linux/Mac
+bash install.sh
+
+# Windows
+install.bat
+```
+
+### 手动部署
+
+将 `system_prompt.md` 加载到LLM的系统提示词中，然后将 `knowledge_base.md` 和 `dietary_formulas.md` 注入上下文。
+
+### 多语言使用
+
+英文版和日文版分别位于 `en/` 和 `ja/` 子目录，单独部署即可。
 
 ---
 
-## Available Languages
-
-| Language | Directory | Status | Key Files |
-|----------|-----------|--------|-----------|
-| 🇨🇳 **中文 (Chinese)** | `../child-obesity-tcm-prevention-skill/` | ✅ Complete v1.0.0 | SKILL.md, system_prompt.md, knowledge_base.md (13 KPK), dietary_formulas.md (11 recipes) |
-| 🇬🇧 **English** | `en/` | ✅ Complete | SKILL.md, system_prompt.md, knowledge_base.md |
-| 🇯🇵 **日本語 (Japanese)** | `ja/` | ✅ Complete | SKILL.md, system_prompt.md |
-
-## Content Summary
-
-All language versions include:
-- **13 KPK knowledge points** covering: epidemiology, risk factors, TCM etiology, 7 constitution types, diagnostic criteria, 4-stage prevention, dietary/exercise/lifestyle intervention, herbal medicine, external therapies, health education
-- **7 TCM constitution types**: Balanced, Qi Deficient, Yang Deficient, Phlegm-Dampness, Damp-Heat, Qi Stagnation, Yang Heat
-- **4 TCM syndrome types**: Spleen Deficiency Dampness, Stomach Heat Dampness, Spleen-Kidney Deficiency, Liver Depression Spleen Deficiency
-- **11 medicinal food recipes** with ingredients, preparation, and contraindications
-- **3 external therapies**: Auricular acupressure (evidence level B), Tuina (level C), Acupuncture (level C)
-- **4-stage preventive treatment**: Pre-disease → Sprout → Disease control → Relapse prevention
-- **5-dimension health education**: Psychology, Family, Hospital, School, Society
-
-## Anti-Hallucination Verification
-
-All strong conclusions have been verified against the original PDF (A-level source, full text obtained):
-- ✅ 47 claims checked → 44/47 directly traceable, 3/47 confirmed as PDF extraction artifacts (not content errors)
-- ✅ 0 prohibited writing patterns found
-- ✅ All KPK data points mapped correctly
-
-## Usage
-
-Load the `system_prompt.md` of your chosen language into an LLM's system prompt, then inject the knowledge_base.md and dietary_formulas.md as context.
-
-## Author
-
-**Wang Runyuan** (王润圆)
-Registered Dietitian in China, MSc in Nutrition and Food Hygiene, Kunming Medical University
-Built with WorkBuddy following the Nutrition Guideline Distillation Methodology v2.0
+> **免责声明**：以上建议基于中华中医药学会《儿童青少年肥胖治未病干预指南》（2026年，中华中医药杂志第41卷第6期），仅供营养科普参考，不可替代药物治疗和专业医疗诊断。中药方剂须经中医师辨证开具，外治法须由专业人员操作。食药物质的使用应在专业人员指导下进行。
