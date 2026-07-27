@@ -1,0 +1,33 @@
+name: 中文营养课程生成器
+version: 0.1.0
+description: 基于中国营养指南的循证中文营养课件生成器，导出PowerPoint。
+author: 王润圆（中国注册营养师，昆明医科大学营养与食品卫生学硕士）
+license: MIT
+language: zh
+tags:
+  - nutrition
+  - education
+  - chinese
+  - pptx-generator
+  - evidence-based
+  - lesson-generator
+assets:
+  - SKILL.md
+  - README.md
+  - requirements.txt
+  - src/main.py
+  - src/schemas/lesson.py
+  - src/providers/base.py
+  - src/providers/mock_provider.py
+  - src/exporters/ppt.py
+  - src/pipeline/generator.py
+  - src/pipeline/validator.py
+metrics:
+  default_slides: 9
+  evidence_fixtures: 5
+  supported_audiences: unlimited
+notes:
+  - 中文版课件生成器，基于中国营养指南（膳食指南2022、卫健委食养指南等）
+  - Mock模式完全离线，内置中文证据fixture
+  - 千里江山图风格配色
+  - PPTX导出基于python-pptx
