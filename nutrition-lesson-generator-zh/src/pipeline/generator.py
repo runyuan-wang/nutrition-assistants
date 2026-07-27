@@ -3,7 +3,8 @@
 import json
 from pathlib import Path
 from datetime import datetime
-from src.schemas.lesson import 生成请求, 课程规范, 证据等级
+from typing import Optional
+from src.schemas.lesson import 生成请求, 课程规范, 课件页面, 引用来源, 证据声明, 证据等级
 from src.providers.mock_provider import ChineseMockProvider
 from src.exporters.ppt import 中文PPT导出器
 
@@ -98,3 +99,121 @@ def 导出全部(课程: 课程规范, 输出目录: str = "output") -> dict:
     outputs['PPTX'] = str(pptx_path)
 
     return outputs
+
+
+def 从PubMed生成课程(请求: 生成请求, date_from: Optional[str] = None, date_to: Optional[str] = None) -> dict:
+    """使用 PubMed 实时检索生成课程"""
+    from src.pubmed.client import PubMedClient
+
+    out = Path(请求.输出目录)
+    out.mkdir(parents=True, exist_ok=True)
+
+    client = PubMedClient()
+    检索结果 = client.搜索(请求.主题, max_results=请求.max_results, 日期范围=(date_from, date_to))
+
+    # 保存 PubMed 原始数据
+    (out / "检索请求.json").write_text(json.dumps({
+        "主题": 请求.主题,
+        "查询语句": 检索结果.查询.最终查询语句,
+        "请求数量": 请求.max_results,
+    }, ensure_ascii=False, indent=2), encoding='utf-8')
+    (out / "检索关键词.json").write_text(json.dumps({"查询": 检索结果.查询.最终查询语句}, ensure_ascii=False, indent=2), encoding='utf-8')
+    (out / "pubmed_raw.json").write_text(json.dumps(检索结果.原始搜索响应, ensure_ascii=False, indent=2), encoding='utf-8')
+    (out / "pubmed_records.json").write_text(json.dumps([r.model_dump() for r in 检索结果.文献列表], ensure_ascii=False, indent=2, default=str), encoding='utf-8')
+
+    # 从 PubMed 文献构建引用列表
+    引用列表 = []
+    for i, 文献 in enumerate(检索结果.文献列表, 1):
+        等级 = 证据等级.C_级  # PubMed 默认观察性/综述
+        for pt in (文献.出版类型 or []):
+            if "Meta-Analysis" in pt or "Systematic Review" in pt:
+                等级 = 证据等级.A_级
+                break
+            elif "Randomized Controlled Trial" in pt:
+                等级 = 证据等级.B_级
+                break
+
+        引用列表.append(引用来源(
+            编号=i,
+            作者=文献.作者 or "作者不详",
+            标题=文献.标题 or "无标题",
+            期刊=文献.期刊,
+            年份=文献.出版年份,
+            PMID=文献.pmid,
+            DOI=文献.doi,
+            证据等级=等级,
+            摘要=文献.摘要[:300] if 文献.摘要 else f"[PMID:{文献.pmid}]",
+            局限性="从 PubMed 摘要生成，未经全文评审",
+        ))
+
+    # 从 PubMed 构建证据声明
+    证据列表 = []
+    for i, 文献 in enumerate(检索结果.文献列表):
+        证据列表.append(证据声明(
+            声明ID=f"PMC-{i+1:03d}",
+            声明内容=文献.标题 or f"PMID:{文献.pmid}",
+            证据摘要=f"[PMID:{文献.pmid}] 从 PubMed 检索获取",
+            解释说明="基于 PubMed 文献摘要",
+            实践建议="请查阅原文获取完整信息",
+            引用=[i+1],
+            局限说明="基于摘要分析，未进行全文评审 | 仅限 PubMed 检索结果",
+        ))
+
+    # 从 PubMed 构建课件页面
+    页面列表 = []
+    页面列表.append(课件页面(
+        页码=1, 标题=请求.主题,
+        正文=f"# {请求.主题}\n\n基于 PubMed 循证文献\n授课对象：{请求.目标听众}\n时长：{请求.课时分钟}分钟",
+        讲稿="欢迎！本课基于 PubMed 实时检索的循证文献。", 页面类型="封面"
+    ))
+    页面列表.append(课件页面(
+        页码=2, 标题="课程概述",
+        正文=f"## 本课内容\n\n1. 研究背景\n2. PubMed 文献证据\n3. 实践建议\n4. 总结要点",
+        讲稿="分为四个部分。", 页面类型="目录"
+    ))
+    页面列表.append(课件页面(
+        页码=3, 标题="PubMed 文献证据",
+        正文="## 检索到的文献\n\n" + "\n".join(
+            f"- **[{i}]** {r.标题[:100] if r.标题 else '无标题'} (PMID:{r.pmid})" for i, r in enumerate(检索结果.文献列表, 1)
+        ),
+        讲稿=f"PubMed 检索到 {len(检索结果.文献列表)} 篇相关文献。",
+        引用编号=list(range(1, len(检索结果.文献列表)+1)),
+        页面类型="内容"
+    ))
+    for i, 文献 in enumerate(检索结果.文献列表[:5]):
+        页面列表.append(课件页面(
+            页码=4+i, 标题=f"文献 {i+1}",
+            正文=f"## {文献.标题}\n\n**PMID**: {文献.pmid}\n**期刊**: {文献.期刊}\n**年份**: {文献.出版年份}\n\n{文献.摘要 or '无摘要'}",
+            讲稿=f"第{i+1}篇文献：{文献.标题}",
+            引用编号=[i+1],
+            页面类型="内容"
+        ))
+    页面列表.append(课件页面(
+        页码=9, 标题="总结要点",
+        正文="## 关键信息\n\n1. 本课基于 PubMed 实时循证文献\n2. 所有引用均带 PMID 可追溯\n3. 局限性：仅基于摘要分析\n4. 建议查阅原文获取详细信息",
+        讲稿="总结：本课基于PubMed实时检索。",
+        页面类型="总结"
+    ))
+    页面列表.append(课件页面(
+        页码=10, 标题="参考文献",
+        正文="## 参考文献\n\n" + "\n".join(f"{i}. PMID:{r.pmid} {r.标题}" for i, r in enumerate(检索结果.文献列表, 1)),
+        讲稿="以上为本课参考文献。",
+        引用编号=list(range(1, len(检索结果.文献列表)+1)),
+        页面类型="参考文献"
+    ))
+
+    课程 = 课程规范(
+        主题=请求.主题,
+        目标听众=请求.目标听众,
+        语言=请求.语言,
+        课时分钟=请求.课时分钟,
+        学习目标=["了解该主题的 PubMed 文献证据", "获取可追溯的文献引用"],
+        关键词=["PubMed", "循证", "文献"],
+        页面列表=页面列表,
+        引用列表=引用列表,
+        证据声明列表=证据列表,
+        生成日期=datetime.now().isoformat()[:10],
+        证据模式="pubmed",
+    )
+
+    return 导出全部(课程, 请求.输出目录)
