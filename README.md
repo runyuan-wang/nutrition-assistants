@@ -44,7 +44,7 @@ Nutrition Assistants 把营养资料与指南转化为可追溯、可复用的 a
 | 🌱 公众与营养科普读者 | [`shiwu-guanxing/`](shiwu-guanxing/) 或主题食养助手 | 看可信、易懂的营养科普；先阅读各目录说明与安全边界 |
 | 👩‍⚕️ 营养专业人员 | [`yuanjiang-nutritionist-diet-evaluation-assistant-skill/`](yuanjiang-nutritionist-diet-evaluation-assistant-skill/) 和主题食养助手 | 资料整理、科普初稿与专业复核辅助 |
 | 🔬 研究者 | [`nutrition-skill-methodology/`](nutrition-skill-methodology/) · [`book-to-skill-distillation/`](book-to-skill-distillation/) · [`multi-agent-research/`](multi-agent-research/) | 方法论、蒸馏流程与多 Agent 研究方向 |
-| 🤖 Agent / 开发贡献者 | [`functional-medicine-skill/`](functional-medicine-skill/) · [`cspi-uncompromised-dga/`](cspi-uncompromised-dga/) 及各目录的 `SKILL.md`、验证材料 | 可移植 Skill 的加载、验证与工作流接入 |
+| 🤖 Agent / 开发贡献者 | [`functional-medicine-skill/`](functional-medicine-skill/) · [`english-functional-medicine-skill/`](english-functional-medicine-skill/) · [`cspi-uncompromised-dga/`](cspi-uncompromised-dga/) 及各目录的 `SKILL.md`、验证材料 | 可移植 Skill 的加载、验证与工作流接入 |
 
 <a id="content-map"></a>
 
@@ -159,7 +159,7 @@ AI Skill 与工作流
 | 🧭 Guideline automation | 指南自动化 / 营养政策 | Agent-native automation distilled from dietary guidelines and nutrition policy documents | [`cspi-uncompromised-dga/`](cspi-uncompromised-dga/) |
 | 🥗 Dietary guidance assistants | 食养助手（资料 / Skills） | Structured dietary guidance assistants for nutrition-related conditions | [`diabetes-food-guide-skill/`](diabetes-food-guide-skill/), [`ckd-food-guide-skill/`](ckd-food-guide-skill/), [`hypertension-food-guide/`](hypertension-food-guide/) |
 | 👩‍⚕️ Nutritionist application assistant | 营养师应用助手 | Professional workflow support for organizing three-day diet records and nutritionist-facing assessment materials | [`yuanjiang-nutritionist-diet-evaluation-assistant-skill/`](yuanjiang-nutritionist-diet-evaluation-assistant-skill/) |
-| 🔬 Portable evidence-review Skill | 功能医学综合 Skill | Portable for agents and oriented to evidence organization and reviewable drafts; not a diagnosis, prescription, treatment replacement, efficacy guarantee, or regulatory-approval tool | [`functional-medicine-skill/`](functional-medicine-skill/) |
+| 🔬 Portable evidence-review Skill | 功能医学综合 Skill | Portable for agents and oriented to evidence organization and reviewable drafts; not a diagnosis, prescription, treatment replacement, efficacy guarantee, or regulatory-approval tool | [`functional-medicine-skill/`](functional-medicine-skill/), [`english-functional-medicine-skill/`](english-functional-medicine-skill/) |
 | 🌐 Public education projects | 科普网页 / 营养传播 | Public-facing nutrition education and communication examples | [`shiwu-guanxing/`](shiwu-guanxing/), [`glucose-revolution-skill/`](glucose-revolution-skill/), [`nutrition-taibai-growth/`](nutrition-taibai-growth/) |
 | 📊 Reference data | 参考数据 | Structured food composition data, GI tables, nutrient definitions | [`china-food-composition/`](china-food-composition/) |
 | 🤖 Workflows & multi-agent research | 工作流、Loop 与多 Agent 研究 | Nutrition content production workflow, loop-capable dietary assistants, and future multi-agent nutrition assessment exploration | [`yuanjiang-nutrition-production-line-skill/`](yuanjiang-nutrition-production-line-skill/), [`loop-dietary-guide-assistant/`](loop-dietary-guide-assistant/), [`loop-engineering/`](loop-engineering/), [`multi-agent-research/`](multi-agent-research/) |
@@ -172,10 +172,12 @@ AI Skill 与工作流
 |---|---|---|
 | [`obesity-food-guide/`](obesity-food-guide/) | 成人肥胖食养助手 | Dietary guidance assistant for adult obesity education. |
 | [`child-obesity-food-guide-skill/`](child-obesity-food-guide-skill/) | 儿童青少年肥胖食养 Skill | Skill package for childhood and adolescent obesity nutrition education. |
+| [`child-obesity-tcm-prevention-skill/`](child-obesity-tcm-prevention-skill/) | 儿童青少年肥胖治未病食养助手（中华中医药学会 2026 治未病指南） | TCM preventive-treatment ("zhi wei bing") Skill for childhood and adolescent obesity, distilled from the China Association of Chinese Medicine 2026 guideline; constitution identification, syndrome typing, and 11 medicinal-diet recipes; zh / en / ja. |
 | [`childhood-obesity-agent/`](childhood-obesity-agent/) | 儿童肥胖 Agent 示例 | Agent-style childhood obesity nutrition assistant example. |
 | [`diabetes-food-guide-skill/`](diabetes-food-guide-skill/) | 糖尿病食养助手 | Dietary guidance assistant for diabetes-related nutrition education. |
 | [`ckd-food-guide-skill/`](ckd-food-guide-skill/) | 慢性肾病食养助手 | Dietary guidance assistant for chronic kidney disease nutrition education. |
 | [`functional-medicine-skill/`](functional-medicine-skill/) | 功能医学综合 Skill | Portable agent Skill for evidence organization and drafts for qualified professional review; not a diagnosis, prescription, treatment replacement, efficacy guarantee, or regulatory-approval tool. |
+| [`english-functional-medicine-skill/`](english-functional-medicine-skill/) | 英文功能医学 Skill（对话式双模式） | English-native, conversation-native portable Skill with two modes: direct evidence Q&A and authorized case analysis with a source-traceable functional-medicine matrix; drafts for qualified professional review, not diagnosis. |
 | [`hypertension-food-guide/`](hypertension-food-guide/) | 高血压食养助手 | Dietary guidance assistant for hypertension nutrition education. |
 | [`hyperlipidemia-food-guide/`](hyperlipidemia-food-guide/) | 高脂血症食养助手 | Dietary guidance assistant for hyperlipidemia nutrition education. |
 | [`osteoporosis-food-guide-skill/`](osteoporosis-food-guide-skill/) | 骨质疏松食养助手 | Dietary guidance assistant for osteoporosis nutrition education. |
@@ -209,6 +211,7 @@ The repository currently includes dietary guidance assistants and nutrition educ
 |---:|---|---|---|
 | 1 | Obesity | 成人肥胖 | [`obesity-food-guide/`](obesity-food-guide/) |
 | 2 | Childhood obesity | 儿童青少年肥胖 | [`child-obesity-food-guide-skill/`](child-obesity-food-guide-skill/) |
+| 2b | Childhood obesity (TCM preventive treatment) | 儿童青少年肥胖·治未病（源自中华中医药学会 2026《儿童青少年肥胖治未病干预指南》，与 #2 的国家卫健委食养指南来源不同） | [`child-obesity-tcm-prevention-skill/`](child-obesity-tcm-prevention-skill/) |
 | 3 | Diabetes | 糖尿病 | [`diabetes-food-guide-skill/`](diabetes-food-guide-skill/) |
 | 4 | Chronic kidney disease | 慢性肾病 | [`ckd-food-guide-skill/`](ckd-food-guide-skill/) |
 | 5 | Hypertension | 高血压 | [`hypertension-food-guide/`](hypertension-food-guide/) |

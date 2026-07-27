@@ -35,7 +35,7 @@ Nutrition Assistants turns nutrition sources and guidance into traceable, reusab
 | 🌱 Public educators and users | [`shiwu-guanxing/`](shiwu-guanxing/) or a topic-specific dietary guidance assistant | Trustworthy, readable nutrition education; read each directory’s safety boundary first |
 | 👩‍⚕️ Nutrition professionals | [`yuanjiang-nutritionist-diet-evaluation-assistant-skill/`](yuanjiang-nutritionist-diet-evaluation-assistant-skill/) and topic assistants | Record organization, education drafts, and professional review support |
 | 🔬 Researchers | [`nutrition-skill-methodology/`](nutrition-skill-methodology/) · [`book-to-skill-distillation/`](book-to-skill-distillation/) · [`multi-agent-research/`](multi-agent-research/) | Methodology, distillation workflows, and multi-agent research directions |
-| 🤖 Agent / developer contributors | [`functional-medicine-skill/`](functional-medicine-skill/) · [`cspi-uncompromised-dga/`](cspi-uncompromised-dga/) and each directory’s `SKILL.md` and validation materials | Loading, validating, and integrating portable Skills |
+| 🤖 Agent / developer contributors | [`functional-medicine-skill/`](functional-medicine-skill/) · [`english-functional-medicine-skill/`](english-functional-medicine-skill/) · [`cspi-uncompromised-dga/`](cspi-uncompromised-dga/) and each directory’s `SKILL.md` and validation materials | Loading, validating, and integrating portable Skills |
 
 <a id="content-map"></a>
 
@@ -116,7 +116,7 @@ future multi-agent nutrition assessment research
 | 🧪 Distillation methodology | How to turn books, guidelines, and professional material into reusable AI skills | [`nutrition-skill-methodology/`](nutrition-skill-methodology/), [`book-to-skill-distillation/`](book-to-skill-distillation/) |
 | 🧭 Guideline automation | Agent-native automation distilled from dietary guidelines and nutrition policy documents | [`cspi-uncompromised-dga/`](cspi-uncompromised-dga/) |
 | 🥗 Dietary guidance assistants | Structured dietary guidance assistants for nutrition-related conditions | [`diabetes-food-guide-skill/`](diabetes-food-guide-skill/), [`ckd-food-guide-skill/`](ckd-food-guide-skill/), [`hypertension-food-guide/`](hypertension-food-guide/) |
-| 🔬 Portable evidence-review Skill | Portable agent Skill for evidence organization and reviewable drafts; not a diagnosis, prescription, treatment replacement, efficacy guarantee, or regulatory-approval tool | [`functional-medicine-skill/`](functional-medicine-skill/) |
+| 🔬 Portable evidence-review Skill | Portable agent Skill for evidence organization and reviewable drafts; not a diagnosis, prescription, treatment replacement, efficacy guarantee, or regulatory-approval tool | [`functional-medicine-skill/`](functional-medicine-skill/), [`english-functional-medicine-skill/`](english-functional-medicine-skill/) |
 | 👩‍⚕️ Nutritionist application assistant | Professional workflow support for organizing three-day diet records and nutritionist-facing assessment materials | [`yuanjiang-nutritionist-diet-evaluation-assistant-skill/`](yuanjiang-nutritionist-diet-evaluation-assistant-skill/) |
 | 🌐 Public education projects | Public-facing nutrition education and communication examples | [`shiwu-guanxing/`](shiwu-guanxing/), [`glucose-revolution-skill/`](glucose-revolution-skill/), [`nutrition-taibai-growth/`](nutrition-taibai-growth/) |
 | 🤖 Workflows, loops & multi-agent research | Nutrition content production workflow, loop-capable dietary assistants, and future multi-agent nutrition assessment exploration | [`yuanjiang-nutrition-production-line-skill/`](yuanjiang-nutrition-production-line-skill/), [`loop-dietary-guide-assistant/`](loop-dietary-guide-assistant/), [`loop-engineering/`](loop-engineering/), [`multi-agent-research/`](multi-agent-research/) |
@@ -130,10 +130,12 @@ future multi-agent nutrition assessment research
 |---|---|
 | [`obesity-food-guide/`](obesity-food-guide/) | Dietary guidance assistant for adult obesity education. |
 | [`child-obesity-food-guide-skill/`](child-obesity-food-guide-skill/) | Skill package for childhood and adolescent obesity nutrition education. |
+| [`child-obesity-tcm-prevention-skill/`](child-obesity-tcm-prevention-skill/) | TCM preventive-treatment ("zhi wei bing") Skill for childhood and adolescent obesity, distilled from the China Association of Chinese Medicine 2026 guideline; constitution identification, syndrome typing, and 11 medicinal-diet recipes; zh / en / ja. |
 | [`childhood-obesity-agent/`](childhood-obesity-agent/) | Agent-style childhood obesity nutrition assistant example. |
 | [`diabetes-food-guide-skill/`](diabetes-food-guide-skill/) | Dietary guidance assistant for diabetes-related nutrition education. |
 | [`ckd-food-guide-skill/`](ckd-food-guide-skill/) | Dietary guidance assistant for chronic kidney disease nutrition education. |
 | [`functional-medicine-skill/`](functional-medicine-skill/) | Portable agent Skill for evidence organization and drafts for qualified professional review; not a diagnosis, prescription, treatment replacement, efficacy guarantee, or regulatory-approval tool. |
+| [`english-functional-medicine-skill/`](english-functional-medicine-skill/) | English-native, conversation-native portable Skill with two modes: direct evidence Q&A and authorized case analysis with a source-traceable functional-medicine matrix; drafts for qualified professional review, not diagnosis. |
 | [`hypertension-food-guide/`](hypertension-food-guide/) | Dietary guidance assistant for hypertension nutrition education. |
 | [`hyperlipidemia-food-guide/`](hyperlipidemia-food-guide/) | Dietary guidance assistant for hyperlipidemia nutrition education. |
 | [`osteoporosis-food-guide-skill/`](osteoporosis-food-guide-skill/) | Dietary guidance assistant for osteoporosis nutrition education. |
@@ -165,6 +167,7 @@ The repository currently includes dietary guidance assistants and nutrition educ
 |---:|---|---|
 | 1 | Obesity | [`obesity-food-guide/`](obesity-food-guide/) |
 | 2 | Childhood obesity | [`child-obesity-food-guide-skill/`](child-obesity-food-guide-skill/) |
+| 2b | Childhood obesity (TCM preventive treatment) — from the China Association of Chinese Medicine 2026 "zhi wei bing" intervention guideline, a source distinct from the National Health Commission dietary guidance behind #2 | [`child-obesity-tcm-prevention-skill/`](child-obesity-tcm-prevention-skill/) |
 | 3 | Diabetes | [`diabetes-food-guide-skill/`](diabetes-food-guide-skill/) |
 | 4 | Chronic kidney disease | [`ckd-food-guide-skill/`](ckd-food-guide-skill/) |
 | 5 | Hypertension | [`hypertension-food-guide/`](hypertension-food-guide/) |
