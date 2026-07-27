@@ -1,6 +1,6 @@
 name: 中文营养课程生成器
-version: 0.1.0
-description: 基于中国营养指南的循证中文营养课件生成器，导出PowerPoint。
+version: 0.2.0
+description: 基于中国营养指南的循证中文营养课件生成器，导出PowerPoint。集成中国DRIs(2023)、GB/T 7714引用、中医食养与质量门禁。
 author: 王润圆（中国注册营养师，昆明医科大学营养与食品卫生学硕士）
 license: MIT
 language: zh
@@ -11,10 +11,14 @@ tags:
   - pptx-generator
   - evidence-based
   - lesson-generator
+  - dris
+  - gbt7714
 assets:
   - SKILL.md
   - README.md
   - requirements.txt
+  - skill.yaml
+  - china_dris.json
   - src/main.py
   - src/schemas/lesson.py
   - src/providers/base.py
@@ -22,6 +26,8 @@ assets:
   - src/exporters/ppt.py
   - src/pipeline/generator.py
   - src/pipeline/validator.py
+  - references/quality_gates.md
+  - examples/
 metrics:
   default_slides: 9
   evidence_fixtures: 5
@@ -29,5 +35,8 @@ metrics:
 notes:
   - 中文版课件生成器，基于中国营养指南（膳食指南2022、卫健委食养指南等）
   - Mock模式完全离线，内置中文证据fixture
-  - 千里江山图风格配色
+  - 千里江山图风格配色 + 中国DRIs参考框 + 中医食养页
   - PPTX导出基于python-pptx
+  - 质量门禁含特殊人群安全门与羞耻化语言检查
+  - 引用采用GB/T 7714-2015格式
+  - v0.2.0 合并远程CLI架构与本地数据/文档资产（DRIs、质量门禁、GB/T 7714、安全规则9-10）

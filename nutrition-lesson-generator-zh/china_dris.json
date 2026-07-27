@@ -1,0 +1,214 @@
+{
+  "_meta": {
+    "source": "中国居民膳食营养素参考摄入量（2023版）",
+    "publisher": "中国营养学会",
+    "year": 2023,
+    "note": "本文件为精选数据，完整数据请查阅原书。数值适用于一般成人（18-64岁）除非特别注明。"
+  },
+
+  "energy": {
+    "unit": "kcal/d",
+    "note": "能量 EER 按身体活动水平（PAL）分级",
+    "male": {
+      "sedentary": 2150,
+      "low_active": 2350,
+      "active": 2600,
+      "very_active": 2850
+    },
+    "female": {
+      "sedentary": 1700,
+      "low_active": 1850,
+      "active": 2050,
+      "very_active": 2200
+    }
+  },
+
+  "macronutrients": {
+    "protein": {
+      "unit": "g/d",
+      "type": "RNI",
+      "male": 65,
+      "female": 55,
+      "note": "成人蛋白质 RNI 按 1.0 g/(kg·d) 计算，优质蛋白应占总蛋白 30%-50%"
+    },
+    "fat": {
+      "unit": "%E",
+      "type": "AMDR",
+      "range": "20-30",
+      "note": "脂肪供能占总能量的 20%-30%；饱和脂肪酸 <10%E；n-6 多不饱和脂肪酸 2.5%-9%E；n-3 多不饱和脂肪酸 0.5%-2.0%E"
+    },
+    "carbohydrate": {
+      "unit": "%E",
+      "type": "AMDR",
+      "range": "50-65",
+      "note": "碳水化合物供能占总能量的 50%-65%；添加糖 <10%E"
+    },
+    "dietary_fiber": {
+      "unit": "g/d",
+      "type": "AI",
+      "value": 25,
+      "note": "成人膳食纤维适宜摄入量（AI）为 25-30 g/d；中国居民膳食指南（2022）建议 25-30 g/d"
+    }
+  },
+
+  "minerals": {
+    "calcium": {
+      "unit": "mg/d",
+      "type": "RNI",
+      "adult": 800,
+      "over_50": 1000,
+      "UL": 2000,
+      "note": "成人钙 RNI 为 800 mg/d，50 岁以上为 1000 mg/d；UL 为 2000 mg/d"
+    },
+    "iron": {
+      "unit": "mg/d",
+      "type": "RNI",
+      "male": 12,
+      "female": 18,
+      "pregnant": 24,
+      "lactating": 24,
+      "UL": 42,
+      "note": "成年男性 12 mg/d，成年女性 18 mg/d（月经丢失），孕妇 24 mg/d"
+    },
+    "zinc": {
+      "unit": "mg/d",
+      "type": "RNI",
+      "male": 12.5,
+      "female": 7.5,
+      "UL": 40,
+      "note": "成年男性 12.5 mg/d，成年女性 7.5 mg/d"
+    },
+    "selenium": {
+      "unit": "μg/d",
+      "type": "RNI",
+      "adult": 60,
+      "UL": 400,
+      "note": "成人硒 RNI 为 60 μg/d"
+    },
+    "magnesium": {
+      "unit": "mg/d",
+      "type": "RNI",
+      "adult": 330,
+      "note": "成人镁 RNI 为 330 mg/d"
+    },
+    "potassium": {
+      "unit": "mg/d",
+      "type": "AI",
+      "adult": 2000,
+      "note": "成人钾 AI 为 2000 mg/d；中国居民膳食指南建议每日钾摄入量 3600 mg"
+    },
+    "sodium": {
+      "unit": "mg/d",
+      "type": "AI",
+      "adult": 1500,
+      "note": "成人钠 AI 为 1500 mg/d（约 3.8 g 食盐）；中国居民膳食指南建议每日食盐 <5 g"
+    }
+  },
+
+  "vitamins": {
+    "vitamin_a": {
+      "unit": "μgRAE/d",
+      "type": "RNI",
+      "male": 800,
+      "female": 700,
+      "UL": 3000,
+      "note": "视黄醇当量（RAE）；成人男性 800 μgRAE/d，女性 700 μgRAE/d"
+    },
+    "vitamin_d": {
+      "unit": "μg/d",
+      "type": "RNI",
+      "adult": 10,
+      "over_65": 15,
+      "UL": 50,
+      "note": "成人维生素 D RNI 为 10 μg/d（400 IU）；65 岁以上为 15 μg/d（600 IU）"
+    },
+    "vitamin_e": {
+      "unit": "mgα-TE/d",
+      "type": "AI",
+      "adult": 14,
+      "note": "α-生育酚当量；成人 AI 为 14 mgα-TE/d"
+    },
+    "vitamin_k": {
+      "unit": "μg/d",
+      "type": "AI",
+      "adult": 80,
+      "note": "成人维生素 K AI 为 80 μg/d"
+    },
+    "vitamin_b1": {
+      "unit": "mg/d",
+      "type": "RNI",
+      "male": 1.4,
+      "female": 1.2,
+      "note": "硫胺素；成人男性 1.4 mg/d，女性 1.2 mg/d"
+    },
+    "vitamin_b2": {
+      "unit": "mg/d",
+      "type": "RNI",
+      "male": 1.4,
+      "female": 1.2,
+      "note": "核黄素；成人男性 1.4 mg/d，女性 1.2 mg/d"
+    },
+    "vitamin_b6": {
+      "unit": "mg/d",
+      "type": "RNI",
+      "adult": 1.4,
+      "note": "成人维生素 B6 RNI 为 1.4 mg/d"
+    },
+    "vitamin_b12": {
+      "unit": "μg/d",
+      "type": "RNI",
+      "adult": 2.4,
+      "note": "成人维生素 B12 RNI 为 2.4 μg/d"
+    },
+    "folate": {
+      "unit": "μgDFE/d",
+      "type": "RNI",
+      "adult": 400,
+      "pregnant": 600,
+      "lactating": 550,
+      "note": "膳食叶酸当量（DFE）；成人 400 μgDFE/d，孕妇 600 μgDFE/d"
+    },
+    "vitamin_c": {
+      "unit": "mg/d",
+      "type": "RNI",
+      "adult": 100,
+      "pregnant": 115,
+      "lactating": 150,
+      "UL": 2000,
+      "note": "成人维生素 C RNI 为 100 mg/d"
+    },
+    "niacin": {
+      "unit": "mgNE/d",
+      "type": "RNI",
+      "male": 15,
+      "female": 12,
+      "note": "烟酸当量（NE）；成人男性 15 mgNE/d，女性 12 mgNE/d"
+    }
+  },
+
+  "water": {
+    "unit": "mL/d",
+    "type": "AI",
+    "adult": 1500,
+    "note": "成人饮水适宜摄入量约 1500-1700 mL/d（不含食物中水分）；总水摄入量约 2700-3000 mL/d"
+  },
+
+  "special_populations": {
+    "pregnant": {
+      "note": "孕妇能量在成年女性基础上增加：孕中期 +300 kcal/d，孕晚期 +450 kcal/d；蛋白质孕中期 +15 g/d，孕晚期 +30 g/d",
+      "key_nutrients": ["叶酸", "铁", "钙", "碘", "维生素D", "DHA"]
+    },
+    "lactating": {
+      "note": "乳母能量在成年女性基础上增加 +500 kcal/d；蛋白质 +25 g/d",
+      "key_nutrients": ["维生素A", "维生素D", "维生素B族", "钙", "铁", "锌", "碘"]
+    },
+    "elderly": {
+      "note": "65 岁以上老年人蛋白质 RNI 为 1.0-1.2 g/(kg·d)；钙 1000 mg/d；维生素D 15 μg/d",
+      "key_nutrients": ["蛋白质", "钙", "维生素D", "维生素B12", "铁"]
+    },
+    "children": {
+      "note": "儿童各年龄段 DRIs 差异较大，请查阅原书分年龄组数据",
+      "key_nutrients": ["蛋白质", "钙", "铁", "锌", "维生素A", "维生素D"]
+    }
+  }
+}
