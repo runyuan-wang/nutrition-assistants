@@ -79,7 +79,7 @@ python -m src.cli nrs2002 --bmi 16.8 --disease-severity 3 --age 65 --json
 
 ### MNA-SF（6 项，每项 0–2/3 分）
 - `appetite` 食量下降 / `weight-loss` 近三月体重下降 / `mobility` 活动能力 / `stress` 应激或急性病 / `neuro` 神经心理问题
-- `bmi` 或 `calf-cm`（小腿围，≥31cm 计 0 分）
+- `bmi` 或 `calf-cm`（小腿围，≥31cm 计 3 分；本量表分越高越好）
 
 ### STRONGkids（4 项，0–2 分）
 - `clinical` 主观临床评估 / `high-risk-disease` 高危疾病 / `intake` 营养摄入下降 / `growth` 体重下降或生长迟缓

@@ -10,17 +10,19 @@ from ..schemas.screening import MNA_SF输入, 筛查结果, 筛查工具, 风险
 
 
 def _bmi分项(i: MNA_SF输入) -> tuple[int, str]:
+    # MNA-SF 为"分越高越好"：BMI≥23→3，21–23→2，19–21→1，<19→0
     if i.bmi is not None:
         if i.bmi >= 23:
-            return 0, f"BMI={i.bmi:.1f} → 0"
+            return 3, f"BMI={i.bmi:.1f} → 3"
         if i.bmi >= 21:
-            return 1, f"BMI={i.bmi:.1f} → 1"
-        if i.bmi >= 19:
             return 2, f"BMI={i.bmi:.1f} → 2"
-        return 3, f"BMI={i.bmi:.1f} → 3"
+        if i.bmi >= 19:
+            return 1, f"BMI={i.bmi:.1f} → 1"
+        return 0, f"BMI={i.bmi:.1f} → 0"
     if i.小腿围_cm is not None:
-        s = 0 if i.小腿围_cm >= 31 else 3
-        return s, f"小腿围={i.小腿围_cm:.1f}cm（≥31 计 0）→ {s}"
+        # 小腿围≥31cm 计 3 分（正常），<31cm 计 0 分
+        s = 3 if i.小腿围_cm >= 31 else 0
+        return s, f"小腿围={i.小腿围_cm:.1f}cm（≥31 计 3）→ {s}"
     return 0, "BMI 与小腿围均缺失，按 0 计，建议补充测量"
 
 
