@@ -1,0 +1,2 @@
+pydantic>=2.0
+typer>=0.9

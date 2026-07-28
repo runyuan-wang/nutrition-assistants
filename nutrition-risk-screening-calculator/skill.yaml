@@ -1,0 +1,17 @@
+name: nutrition-risk-screening-calculator
+version: 0.1.0
+description: 临床营养风险筛查计算器，内置 NRS-2002、MUST、MNA-SF、STRONGkids 四种国际通用量表，输入体征即输出维度分、风险等级与处置建议。
+license: MIT
+tags:
+  - nutrition
+  - screening
+  - nrs-2002
+  - must
+  - mna-sf
+  - strongkids
+  - clinical
+  - calculator
+  - chinese
+author: Ryunyuan (王润圆)
+homepage: https://github.com/9s5bz2jvd2-lang/nutrition-assistants/tree/main/nutrition-risk-screening-calculator
+entry: src/cli.py
