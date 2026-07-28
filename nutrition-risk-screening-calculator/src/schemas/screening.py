@@ -30,7 +30,6 @@ class 风险等级(str, Enum):
 
 class NRS2002输入(BaseModel):
     bmi: float | None = Field(default=None, description="体质指数 kg/m²（可选）")
-    impaired_general_condition: bool = Field(default=False, description="伴一般状况受损（BMI 18.5–20.5 时影响计分）")
     近三月体重下降百分比: float | None = Field(default=None, ge=0, le=100, description="近 X 月体重下降百分比")
     体重下降观察月数: int | None = Field(default=None, ge=1, le=24, description="体重下降观察月数")
     近一周进食量占正常百分比: int | None = Field(default=None, ge=0, le=100, description="近一周进食量占正常的百分比")

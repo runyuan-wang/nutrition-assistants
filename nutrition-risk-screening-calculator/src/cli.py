@@ -27,7 +27,7 @@ def _映射(工具: 筛查工具, opts: dict) -> dict:
     """英文选项名 → 中文 Pydantic 字段名，并丢弃 None 值。"""
     字段表 = {
         筛查工具.NRS2002: {
-            "bmi": "bmi", "impaired_gc": "impaired_general_condition",
+            "bmi": "bmi",
             "weight_loss_pct": "近三月体重下降百分比", "weight_loss_months": "体重下降观察月数",
             "intake_pct": "近一周进食量占正常百分比",
             "disease_severity": "疾病严重程度评分", "age": "年龄",
@@ -79,7 +79,6 @@ def _打印(结果: 筛查结果, json_mode: bool) -> None:
 @app.command()
 def nrs2002(
     bmi: Optional[float] = typer.Option(None, "--bmi", help="体质指数 kg/m²"),
-    impaired_gc: bool = typer.Option(False, "--impaired-gc", help="伴一般状况受损"),
     weight_loss_pct: Optional[float] = typer.Option(None, "--weight-loss-pct", help="近 X 月体重下降百分比"),
     weight_loss_months: Optional[int] = typer.Option(None, "--weight-loss-months", help="体重下降观察月数"),
     intake_pct: Optional[int] = typer.Option(None, "--intake-pct", help="近一周进食量占正常百分比"),

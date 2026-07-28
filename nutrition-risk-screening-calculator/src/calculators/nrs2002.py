@@ -10,22 +10,26 @@ from ..schemas.screening import NRS2002输入, 筛查结果, 筛查工具, 风�
 
 
 def _营养状态分(i: NRS2002输入) -> int:
-    """取 BMI / 体重下降 / 进食量 三个维度中最重的一档作为 A 分。"""
+    """取 BMI / 体重下降 / 进食量 三个维度中最重的一档作为 A 分。
+
+    评分参考中华医学会肠外肠内营养学分会推荐的中国简化版：
+    - BMI <18.5 → 3（重度）、18.5–20.5 → 2（中度）、≥20.5 → 0
+    - 体重下降 >5%  1个月内 → 3、2个月内 → 2、3个月内 → 1
+    - 进食量 0–25% → 3、26–50% → 2、51–75% → 1
+    """
     scores: list[int] = []
 
     if i.bmi is not None:
-        if i.bmi < 16.0:
+        if i.bmi < 18.5:
             scores.append(3)
-        elif i.bmi < 18.5:
-            scores.append(2)
         elif i.bmi < 20.5:
-            scores.append(1 if i.impaired_general_condition else 0)
+            scores.append(2)
         else:
             scores.append(0)
 
     if i.近三月体重下降百分比 is not None and i.体重下降观察月数 is not None:
         pct, months = i.近三月体重下降百分比, i.体重下降观察月数
-        if pct > 10 and months <= 6:
+        if pct > 5 and months <= 1:
             scores.append(3)
         elif pct > 5 and months <= 2:
             scores.append(2)
