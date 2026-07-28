@@ -41,6 +41,11 @@ def _映射(工具: 筛查工具, opts: dict) -> dict:
             "stress": "应激或急性疾病", "neuro": "神经心理问题",
             "bmi": "bmi", "calf_cm": "小腿围_cm",
         },
+        筛查工具.STAMP: {
+            "disease_risk": "疾病风险评分",
+            "dietary_intake": "膳食摄入评分",
+            "anthropometry": "人体测量评分",
+        },
         筛查工具.STRONGKIDS: {
             "clinical": "主观临床评估", "high_risk_disease": "高危疾病",
             "intake": "营养摄入下降", "growth": "体重下降或生长迟缓",
@@ -119,6 +124,18 @@ def mna_sf(
     结果 = 调度(筛查工具.MNA_SF, **_映射(筛查工具.MNA_SF, dict(
         appetite=appetite, weight_loss=weight_loss, mobility=mobility,
         stress=stress, neuro=neuro, bmi=bmi, calf_cm=calf_cm)))
+    _打印(结果, json_mode)
+
+
+@app.command()
+def stamp(
+    disease_risk: int = typer.Option(..., "--disease-risk", help="疾病风险 0/2/3"),
+    dietary_intake: int = typer.Option(..., "--dietary-intake", help="膳食摄入 0/2/3"),
+    anthropometry: int = typer.Option(..., "--anthropometry", help="人体测量 0/1/3"),
+    json_mode: bool = typer.Option(False, "--json", help="输出 JSON"),
+):
+    结果 = 调度(筛查工具.STAMP, **_映射(筛查工具.STAMP, dict(
+        disease_risk=disease_risk, dietary_intake=dietary_intake, anthropometry=anthropometry)))
     _打印(结果, json_mode)
 
 

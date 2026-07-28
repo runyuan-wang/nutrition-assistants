@@ -15,6 +15,7 @@ class 筛查工具(str, Enum):
     MUST = "MUST"              # 通用（英国 BAPEN）
     MNA_SF = "MNA-SF"          # 老年（≥65 岁）精简版
     STRONGKIDS = "STRONGkids"  # 儿童（儿科）
+    STAMP = "STAMP"              # 儿科（2–17 岁，中国质控中心 2021 推荐）
 
 
 class 风险等级(str, Enum):
@@ -51,6 +52,16 @@ class MNA_SF输入(BaseModel):
     神经心理问题: int = Field(..., ge=0, le=2, description="0 无 / 1 有（痴呆/抑郁等）")
     bmi: float | None = Field(default=None, gt=0, le=100, description="体质指数 kg/m²")
     小腿围_cm: float | None = Field(default=None, gt=0, le=80, description="小腿围 cm（≥31 计 0 分；BMI 缺失时代替）")
+
+
+class STAMP输入(BaseModel):
+    """中国国家临床营养质控中心 2021 年推荐儿科筛查工具。
+    适用：2–17 岁住院患儿。
+    评分：疾病风险(0/2/3) + 膳食摄入(0/2/3) + 人体测量(0/1/3)，满分 9。
+    """
+    疾病风险评分: int = Field(..., ge=0, le=3, description="0=不存在, 2=可能存在(小手术/慢病等), 3=肯定存在(大手术/肿瘤/肠衰竭等)")
+    膳食摄入评分: int = Field(..., ge=0, le=3, description="0=无变化, 2=减少一半以上(≥3天), 3=无营养摄入(≥3天)")
+    人体测量评分: int = Field(..., ge=0, le=3, description="0=正常, 1=>2个主百分位, 3=>3个主百分位或体重<第2百分位")
 
 
 class STRONGkids输入(BaseModel):
