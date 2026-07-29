@@ -5,7 +5,7 @@
                              --intake-pct 60 --disease-severity 2 --age 72
   python -m src.cli must     --bmi 17.0 --weight-loss-pct 8 --acute-no-intake
   python -m src.cli mna-sf   --appetite 1 --weight-loss 2 --mobility 1 --stress 0 --neuro 0 --bmi 21.5
-  python -m src.cli strongkids --clinical 0 --high-risk-disease 2 --intake 1 --growth 1
+  python -m src.cli strongkids --clinical 1 --high-risk-disease 2 --intake 1 --growth 1
 加 --json 输出 JSON（便于系统集成）。
 """
 from __future__ import annotations
@@ -141,10 +141,10 @@ def stamp(
 
 @app.command()
 def strongkids(
-    clinical: int = typer.Option(..., "--clinical", help="主观临床评估 0/2"),
+    clinical: int = typer.Option(..., "--clinical", help="主观临床评估 0/1"),
     high_risk_disease: int = typer.Option(..., "--high-risk-disease", help="高危疾病 0/2"),
-    intake: int = typer.Option(..., "--intake", help="营养摄入下降 0-2"),
-    growth: int = typer.Option(..., "--growth", help="体重下降或生长迟缓 0-2"),
+    intake: int = typer.Option(..., "--intake", help="营养摄入或损失 0/1"),
+    growth: int = typer.Option(..., "--growth", help="体重下降或生长迟缓 0/1"),
     json_mode: bool = typer.Option(False, "--json", help="输出 JSON"),
 ):
     结果 = 调度(筛查工具.STRONGKIDS, **_映射(筛查工具.STRONGKIDS, dict(

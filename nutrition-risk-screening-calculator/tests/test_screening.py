@@ -13,8 +13,10 @@ import sys
 # 允许直接运行：将 skill 根目录加入路径，使 `import src` 可用
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from pydantic import ValidationError
+
 from src.calculators import 调度
-from src.schemas.screening import 筛查工具
+from src.schemas.screening import STRONGkids输入, 筛查工具
 
 
 def _检查(名称: str, 工具: 筛查工具, 入参: dict, 期望总分, 期望等级: str) -> bool:
@@ -46,7 +48,7 @@ def 主() -> int:
         ("STAMP 低危", 筛查工具.STAMP, dict(疾病风险评分=0, 膳食摄入评分=0, 人体测量评分=0), 0, "低危"),
         ("STAMP 中危", 筛查工具.STAMP, dict(疾病风险评分=2, 膳食摄入评分=0, 人体测量评分=0), 2, "中危"),
         ("STAMP 高危", 筛查工具.STAMP, dict(疾病风险评分=3, 膳食摄入评分=3, 人体测量评分=3), 9, "高危"),
-        ("STRONG 高危", 筛查工具.STRONGKIDS, dict(主观临床评估=2, 高危疾病=2, 营养摄入下降=2, 体重下降或生长迟缓=2), 8, "高危"),
+        ("STRONG 高危（满分5）", 筛查工具.STRONGKIDS, dict(主观临床评估=1, 高危疾病=2, 营养摄入下降=1, 体重下降或生长迟缓=1), 5, "高危"),
         ("NRS BMI中值(19→2分)", 筛查工具.NRS2002, dict(bmi=19, 疾病严重程度评分=0, 年龄=30), 2, "无风险"),
     ]
 
@@ -55,12 +57,68 @@ def 主() -> int:
         if not _检查(名称, 工具, 入参, 期望总分, 期望等级):
             失败.append(名称)
 
-    print()
     if 失败:
-        print(f"❌ {len(失败)} 个用例失败：{', '.join(失败)}")
-        return 1
-    print("🎉 全部通过：算法与量表原文一致。")
-    return 0
+        print(f"❌ 传统/通用用例：{len(用例) - len(失败)}/{len(用例)} PASS；失败：{', '.join(失败)}")
+    else:
+        print(f"🎉 传统/通用用例：{len(用例)}/{len(用例)} PASS。")
+
+    有效通过数 = _验证_strongkids_有效用例()
+    非法通过数 = _验证_strongkids_非法值()
+    if not 失败:
+        print(f"🎉 直接回归总计：{len(用例)} legacy + {有效通过数} valid + {非法通过数} invalid = "
+              f"{len(用例) + 有效通过数 + 非法通过数} PASS。")
+    return 1 if 失败 else 0
+
+
+def _验证_strongkids_有效用例():
+    cases = [
+        (dict(主观临床评估=0, 高危疾病=0, 营养摄入下降=0, 体重下降或生长迟缓=0), 0, "低危"),
+        (dict(主观临床评估=1, 高危疾病=0, 营养摄入下降=0, 体重下降或生长迟缓=0), 1, "中危"),
+        (dict(主观临床评估=0, 高危疾病=2, 营养摄入下降=0, 体重下降或生长迟缓=0), 2, "中危"),
+        (dict(主观临床评估=0, 高危疾病=2, 营养摄入下降=1, 体重下降或生长迟缓=0), 3, "中危"),
+        (dict(主观临床评估=0, 高危疾病=2, 营养摄入下降=1, 体重下降或生长迟缓=1), 4, "高危"),
+        (dict(主观临床评估=1, 高危疾病=2, 营养摄入下降=1, 体重下降或生长迟缓=1), 5, "高危"),
+    ]
+    for 入参, 期望总分, 期望等级 in cases:
+        结果 = 调度(筛查工具.STRONGKIDS, **入参)
+
+        assert 结果.总分 == 期望总分
+        assert 结果.风险等级.value == 期望等级
+        if 期望总分 == 5:
+            assert "/5" in 结果.风险说明
+    print(f"✅ STRONGkids 有效分带用例：{len(cases)}/{len(cases)} PASS")
+    return len(cases)
+
+
+def test_strongkids_five_point_risk_bands():
+    _验证_strongkids_有效用例()
+
+
+def _断言拒绝(入参):
+    try:
+        STRONGkids输入(**入参)
+    except ValidationError:
+        return
+    raise AssertionError(f"expected STRONGkids input to be rejected: {入参}")
+
+
+def _验证_strongkids_非法值():
+    cases = [
+        ("主观临床评估", 2),
+        ("营养摄入下降", 2),
+        ("体重下降或生长迟缓", 2),
+        ("高危疾病", 1),
+    ]
+    for 字段, 非法值 in cases:
+        入参 = dict(主观临床评估=0, 高危疾病=0, 营养摄入下降=0, 体重下降或生长迟缓=0)
+        入参[字段] = 非法值
+        _断言拒绝(入参)
+    print(f"✅ STRONGkids 非法值拒绝用例：{len(cases)}/{len(cases)} PASS")
+    return len(cases)
+
+
+def test_strongkids_rejects_noncanonical_weighted_scores():
+    _验证_strongkids_非法值()
 
 
 if __name__ == "__main__":

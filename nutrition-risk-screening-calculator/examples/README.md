@@ -31,9 +31,9 @@ python -m src.cli mna-sf --appetite 1 --weight-loss 2 --mobility 1 \
 ## STRONGkids（儿童，高危示例）
 
 ```bash
-python -m src.cli strongkids --clinical 0 --high-risk-disease 2 --intake 1 --growth 1
+python -m src.cli strongkids --clinical 1 --high-risk-disease 2 --intake 1 --growth 1
 ```
-- 总分 4/10
+- 总分 5/5
 - 风险等级：**高危**（≥4）
 
 ## JSON 输出（系统对接）

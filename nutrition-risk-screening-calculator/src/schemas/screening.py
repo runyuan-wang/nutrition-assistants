@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 from enum import Enum
+from typing import Literal
 
 from pydantic import BaseModel, Field
 
@@ -65,10 +66,17 @@ class STAMP输入(BaseModel):
 
 
 class STRONGkids输入(BaseModel):
-    主观临床评估: int = Field(..., ge=0, le=2, description="0 良好 / 2 可疑营养不良")
-    高危疾病: int = Field(..., ge=0, le=2, description="0 无 / 2 有（肿瘤/心肺/消化/肾/神经/代谢病等）")
-    营养摄入下降: int = Field(..., ge=0, le=2, description="0 无 / 1 减少 / 2 严重不足")
-    体重下降或生长迟缓: int = Field(..., ge=0, le=2, description="0 无 / 1 有 / 2 明显")
+    """STRONGkids 加权输入（总分上限 5）。
+
+    原量表题目顺序：高危疾病=2 / 主观临床评估=1 / 营养摄入或损失=1 /
+    体重下降或生长迟缓=1；本 API 字段顺序：主观临床评估=1 / 高危疾病=2 /
+    营养摄入或损失=1 / 体重下降或生长迟缓=1。
+    """
+
+    主观临床评估: Literal[0, 1] = Field(..., description="0=否 / 1=是：主观评估提示营养状况不良")
+    高危疾病: Literal[0, 2] = Field(..., description="0=否 / 2=是：存在营养不良高风险基础疾病或预计大手术")
+    营养摄入下降: Literal[0, 1] = Field(..., description="0=否 / 1=是：存在摄入减少、呕吐/腹泻或其他摄入损失")
+    体重下降或生长迟缓: Literal[0, 1] = Field(..., description="0=否 / 1=是：体重下降或婴儿体重/身高未增加")
 
 
 # ---------------------------------------------------------------------------
