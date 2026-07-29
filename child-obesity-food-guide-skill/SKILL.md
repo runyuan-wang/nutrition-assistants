@@ -1,5 +1,5 @@
 ---
-name: 营养学 | 儿童青少年肥胖食养助手
+name: child-obesity-food-guide-skill
 description: |
   营养学 | 儿童青少年肥胖食养助手（Childhood Obesity Nutrition Guide）
   基于国家卫生健康委《儿童青少年肥胖食养指南（2024年版）》及其官方问答的AI营养科普对话助手。

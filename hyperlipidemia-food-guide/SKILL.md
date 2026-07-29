@@ -1,5 +1,5 @@
 ---
-name: 营养学 | 高脂血症食养助手
+name: hyperlipidemia-food-guide
 description: |
   营养学 | 高脂血症食养助手 (Hyperlipidemia Nutrition Guide)
   基于国家卫生健康委《成人高脂血症食养指南（2023年版）》的AI科普对话助手。

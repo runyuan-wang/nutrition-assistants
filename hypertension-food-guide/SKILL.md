@@ -1,3 +1,9 @@
+---
+name: hypertension-food-guide
+description: |
+  营养学 | 高血压食养助手 (Hypertension Nutrition Guide)
+---
+
 # 营养学 | 高血压食养助手 (Hypertension Nutrition Guide)
 
 基于**国家卫生健康委**发布的《**成人高血压食养指南（2023年版）**》的AI科普对话助手 | Nutrition Science Skill

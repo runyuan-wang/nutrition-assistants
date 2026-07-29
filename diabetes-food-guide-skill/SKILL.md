@@ -1,5 +1,5 @@
 ---
-name: 营养学 | 糖尿病食养助手
+name: diabetes-food-guide-skill
 description: |
   营养学 | 糖尿病食养助手 (Diabetes Nutrition Guide)
   基于国家卫生健康委《成人糖尿病食养指南（2023年版）》的AI科普对话助手。

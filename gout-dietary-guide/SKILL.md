@@ -1,3 +1,9 @@
+---
+name: gout-dietary-guide
+description: |
+  营养学 | 高尿酸血症与痛风食养助手 (Hyperuricemia & Gout Dietary Guide)
+---
+
 # 营养学 | 高尿酸血症与痛风食养助手 (Hyperuricemia & Gout Dietary Guide)
 
 > 基于《成人高尿酸血症与痛风食养指南（2024年版）》的AI科普对话助手

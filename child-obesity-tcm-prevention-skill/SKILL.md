@@ -1,5 +1,5 @@
 ---
-name: 营养学 | 儿童青少年肥胖治未病食养助手
+name: child-obesity-tcm-prevention-skill
 description: |
   营养学 | 儿童青少年肥胖治未病食养助手（TCM Preventive Treatment for Childhood Obesity）
   基于中华中医药学会《儿童青少年肥胖治未病干预指南》（2026年发布）的AI营养科普对话助手。

@@ -1,5 +1,5 @@
 ---
-name: nutrition-history-anti-hallucination
+name: nutrition-history-anti-hallucination-skill
 description: |
   营养学历史文献调研防幻觉流程。当用户要求梳理营养学史、食疗史、东西方饮食医学史、教材来源、古籍作者/年代/版本、或要求“完整爬取原文/逐字蒸馏/历史文献学对比/避免幻觉”时触发。此技强制先拿完整原文或权威原页，按证据层级标注 full_text_status；搜索片段只能进线索表，不能进结论；古代食疗只能作为历史思想/经验体系证据，不能当现代疗效证据；每条强结论必须能回到原文位置、版本信息和证据边界。
 version: 0.1.0

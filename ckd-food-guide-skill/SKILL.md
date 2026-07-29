@@ -1,5 +1,5 @@
 ---
-name: ckd-food-guide
+name: ckd-food-guide-skill
 description: Standard agent entrypoint for the existing chronic kidney disease food-guide documentation.
 ---
 
