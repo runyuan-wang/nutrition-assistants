@@ -1,8 +1,9 @@
 # Layer 8: Four-Track Evidence Discovery & Regulatory Gate
 
-> **Schema version:** `layer8-evidence-v2.0`
-> **Supersedes:** `layer8_evidence_query.md` v1 (baseline commit `9f48aee`)
+> **Schema version:** `layer8-evidence-v2.1`
+> **Supersedes:** `layer8-evidence-v2.0` (adds Citation Integrity binding)
 > **Purpose:** After draft generation, execute a traceable, non-silent four-track evidence workflow. Each component receives a result or a ledgered failure/blocked row; gaps block only finalization, efficacy promotion, or market claims, never the reviewable draft.
+> **Related contract (MANDATORY):** `reference/citation_integrity_contract.md` — every citation produced by this workflow must satisfy its Iron Rules (no locator no citation; whitelisted sources only; absent is valid; standard format or nothing).
 
 ---
 
@@ -22,7 +23,7 @@ The textbook corpus provides theoretical framework and classical formulation log
 ## 2. Four Evidence Tracks
 
 ### Track 1: Human Clinical Evidence
-Search verified SR/MA/RCT and human clinical records. For every selected source report locator, population, intervention/specification, dose, duration, outcome, limitations, query, source, and date. Snippets are not evidence; a scoped no-result is not proof of no evidence.
+Search verified SR/MA/RCT and human clinical records, using ONLY whitelisted `source_id`s from `reference/source_registry.md` (non-registered sources such as WeChat Official Accounts, self-media, blogs, and marketing sites are prohibited). For every selected source report locator, population, intervention/specification, dose, duration, outcome, limitations, query, source, and date. Snippets are not evidence; a scoped no-result is not proof of no evidence. Every citation must satisfy `reference/citation_integrity_contract.md`: complete minimum fields, standard citation format, canonical locator URL, and a recorded verification status.
 
 ### Track 2: Animal/In-vivo Evidence
 For each selected source report species/model, route, animal dose/unit, duration, endpoints, locator, translation limits, and the mandatory warning that animal findings/doses do not establish human efficacy/dose.
@@ -114,8 +115,11 @@ The evidence gate and regulatory gate are **independent, parallel gates**:
 | (E3) | Human evidence status does not imply efficacy when absent | Text implies efficacy but `evidence_status=absent` → abort |
 | (E4) | Animal/traditional/mechanistic evidence not promoted to clinical proof | Cross-tier promotion detected → abort |
 | (E5) | Regulatory assessment completed for every ingredient × every declared jurisdiction × every category | Any `unknown` or `not_assessed` → blocks "market-ready" claim |
-| (E6) | No fabricated citations, DOIs, trial registrations, or regulatory statuses | Fabrication detected → abort |
-| (E7) | Search ledger recorded for all queries | Missing search record → abort |
+| (E6a) | Every output citation complies with `citation_integrity_contract.md` Iron Rules R1–R4: ledger-backed locator with canonical URL, whitelisted `source_id`, standard citation format | Orphan / non-standard / non-whitelisted citation → removed; intentional fabrication → abort |
+| (E6b) | Citation gates C1–C6 of `citation_integrity_contract.md` all pass (1:1 binding, ledger coverage, verified-for-efficacy, absent-never-filled, standard format, whitelist) | Any C-gate failed → abort finalization |
+| (E6c) | Sessions without live retrieval declare "No live literature retrieval was performed", mark all citations `unverified`, and cap evidence at `weak` | Undeclared memory-based citation → abort |
+| (E6d) | Every zero-result query is ledgered as `absent` with its search scope per contract §7; rejected citations removed and logged | Fabricated filler or silent zero-result → abort |
+| (E7) | Search ledger AND citation ledger recorded for all queries and citations | Missing search or citation record → abort |
 | (E8) | Retains existing two-pass textbook corpus safety contract (Phase A/B) | Phase A/B coverage incomplete → abort |
 
 ---

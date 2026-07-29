@@ -67,6 +67,7 @@ metadata:
 | 胰岛素抵抗/代谢综合征 | → `knowledge/ch13_metabolic.txt` 或 `knowledge/fm2_ch09_insulin.txt` |
 | 需要原文级深度引用 | 按主题从 `reference/knowledge_index.md` 定位对应 `knowledge/` 文件 |
 | **配方生成后循证验证** | `reference/layer8_evidence_query.md`（含四轨证据+法规门控） |
+| **引用真实性强制合约** | `reference/citation_integrity_contract.md`（白名单来源/标准格式/原文链接/禁编造） |
 | **配方身份门控/语境门控** | `reference/formula_context_identity_gate.md` |
 | **配方法规门控** | `reference/regulatory_gate.md` |
 | **权威来源注册表** | `reference/source_registry.md` |
@@ -95,7 +96,11 @@ metadata:
 - **进食障碍/体重羞耻**：涉及体重管理的建议不得使用羞耻化语言
 - **证据边界**：所有建议必须标注证据层级（教材推荐/RCT证据/动物实验/专家共识/传统记录）
 - **转介义务**：当用户描述的症状超出功能医学营养范畴时，必须建议其就医
-- **引用真实**：不得编造文献、DOI、研究结论；证据查询结果如实呈现，查不到就标注"无证据"
+- **引用真实（强制合约）**：所有文献引用必须符合 `reference/citation_integrity_contract.md`：
+  - 仅限 `reference/source_registry.md` 白名单来源（严禁微信公众号/自媒体/博客/营销网站等非权威来源）
+  - 每条引用必须为完整标准格式（英文 NLM/Vancouver，中文 GB/T 7714）并附 PMID/DOI/NCT 等可追溯原文链接
+  - 有就有，没有就说没有：查不到如实标注"无证据"（附检索范围），严禁编造或凭记忆生成引用
+  - 未验证（`unverified`）引用不得支持疗效声明；无实时检索时必须声明并降级证据
 - **不编造法规状态**：不得虚构管辖区的法规授权、产品类别批准或原料合规状态
 - **不编造来源**：不得声称"已搜索全部互联网"或"已覆盖所有国家"
 
@@ -125,7 +130,7 @@ metadata:
 
 | 目录 | 说明 | 文件数 |
 |------|------|--------|
-| `reference/` | 作者层1-6、路由/安全、层8 + 新增门控/注册表 + 个性化接诊/分诊/选择/提醒/工作流 | 22 |
+| `reference/` | 作者层1-6、路由/安全、层8 + 新增门控/注册表/引用完整性合约 + 个性化接诊/分诊/选择/提醒/工作流 | 23 |
 | `knowledge/` | 完整教材章节（字节级保留） | 40 |
 | `templates/` | 输出模板（证据矩阵、法规矩阵、TCM矩阵、搜索台账、阻断摘要、配方候选、个性化便方、提醒包、接诊审计） | 9 |
 | `assets/` | 评估测试用例 | 1 |
