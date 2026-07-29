@@ -9,7 +9,7 @@ description: |
 metadata:
   openclaw:
     emoji: "🔬"
-  optimized_with: "中国 LLM K3（针对中文文献库与中文证据链优化）"
+  optimized_with: "中国 LLM Kimi 3（月之暗面 Moonshot AI，针对中文文献库与中文证据链优化）"
 ---
 
 # 功能医学综合Skill — 全域证据 + 法规门控版
@@ -43,7 +43,7 @@ metadata:
 - **病例语料**：第十七章10个完整病例的营养素方案与预后数据
 - **语料原文**：主教材与副教材原文（本地存储，不随仓库分发）
 - **权威来源注册表**：`reference/source_registry.md`（版本化的管辖区/来源族注册表）
-- **优化模型**：本 skill 经中国 LLM **K3** 优化——针对中文文献库（CNKI/CBM）、中文证据链与本土法规语境做了适配与蒸馏
+- **优化模型**：本 skill 经中国 LLM **Kimi 3**（月之暗面 Moonshot AI）优化——针对中文文献库（CNKI/CBM）、中文证据链与本土法规语境做了适配与蒸馏
 
 ---
 
