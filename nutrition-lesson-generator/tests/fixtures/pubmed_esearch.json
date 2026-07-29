@@ -1,0 +1,18 @@
+{
+  "header": {
+    "type": "esearch",
+    "version": "0.3"
+  },
+  "esearchresult": {
+    "count": "3",
+    "retmax": "3",
+    "retstart": "0",
+    "idlist": [
+      "29902436",
+      "30638909",
+      "30202317"
+    ],
+    "translationset": [],
+    "querytranslation": "\"Dietary Fiber and Gut Health\"[Title/Abstract] AND (\"humans\"[MeSH Terms] OR \"human\"[Title/Abstract]) AND ((\"systematic review\"[Title/Abstract] OR \"meta-analysis\"[Title/Abstract] OR \"review\"[Title/Abstract]) OR (\"guideline\"[Title/Abstract] OR \"consensus\"[Title/Abstract]))"
+  }
+}

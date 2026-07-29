@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2024//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_240101.dtd">
+<PubmedArticleSet>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE" Owner="NLM">
+      <PMID Version="1">29902436</PMID>
+      <DateCompleted>
+        <Year>2018</Year>
+        <Month>12</Month>
+        <Day>01</Day>
+      </DateCompleted>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Electronic">1931-3128</ISSN>
+          <JournalIssue CitedMedium="Internet">
+            <Volume>23</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2018</Year>
+              <Month>Jun</Month>
+              <Day>13</Day>
+            </PubDate>
+          </JournalIssue>
+          <Title>Cell Host &amp; Microbe</Title>
+          <ISOAbbreviation>Cell Host Microbe</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>The Impact of Dietary Fiber on Gut Microbiota in Host Health and Disease</ArticleTitle>
+        <Pagination>
+          <StartPage>705</StartPage>
+          <EndPage>715</EndPage>
+          <MedlinePgn>705-715</MedlinePgn>
+        </Pagination>
+        <Abstract>
+          <AbstractText>Dietary fiber has a key role in shaping the gut microbiota and in influencing host health.</AbstractText>
+          <AbstractText Label="Conclusion">Higher fiber intake supports microbial diversity.</AbstractText>
+        </Abstract>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Makki</LastName>
+            <ForeName>Kassem</ForeName>
+            <Initials>K</Initials>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Deehan</LastName>
+            <ForeName>Edward C</ForeName>
+            <Initials>EC</Initials>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Walter</LastName>
+            <ForeName>Jens</ForeName>
+            <Initials>J</Initials>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Bäckhed</LastName>
+            <ForeName>Fredrik</ForeName>
+            <Initials>F</Initials>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+          <PublicationType UI="D016454">Review</PublicationType>
+        </PublicationTypeList>
+        <ArticleDate DateType="Electronic">
+          <Year>2018</Year>
+          <Month>06</Month>
+          <Day>14</Day>
+        </ArticleDate>
+      </Article>
+      <MedlineJournalInfo>
+        <Country>United States</Country>
+        <MedlineTA>Cell Host Microbe</MedlineTA>
+        <NlmUniqueID>101302966</NlmUniqueID>
+        <ISSNLinking>1931-3128</ISSNLinking>
+      </MedlineJournalInfo>
+      <MeshHeadingList>
+        <MeshHeading>
+          <DescriptorName UI="D005247" MajorTopicYN="N">Dietary Fiber</DescriptorName>
+        </MeshHeading>
+        <MeshHeading>
+          <DescriptorName UI="D006099" MajorTopicYN="N">Gastrointestinal Microbiome</DescriptorName>
+        </MeshHeading>
+      </MeshHeadingList>
+    </MedlineCitation>
+    <PubmedData>
+      <History>
+        <PubMedPubDate PubStatus="entrez">
+          <Year>2018</Year>
+          <Month>6</Month>
+          <Day>15</Day>
+          <Hour>6</Hour>
+          <Minute>0</Minute>
+        </PubMedPubDate>
+      </History>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">29902436</ArticleId>
+        <ArticleId IdType="doi">10.1016/j.chom.2018.05.012</ArticleId>
+      </ArticleIdList>
+    </PubmedData>
+  </PubmedArticle>
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE" Owner="NLM">
+      <PMID Version="1">30638909</PMID>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Electronic">1474-547X</ISSN>
+          <JournalIssue CitedMedium="Internet">
+            <Volume>393</Volume>
+            <Issue>10170</Issue>
+            <PubDate>
+              <Year>2019</Year>
+              <Month>Jan</Month>
+              <Day>10</Day>
+            </PubDate>
+          </JournalIssue>
+          <Title>The Lancet</Title>
+          <ISOAbbreviation>Lancet</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>Carbohydrate quality and human health: a series of systematic reviews and meta-analyses</ArticleTitle>
+        <Abstract>
+          <AbstractText>High intake of dietary fibre is associated with reduced risk of mortality.</AbstractText>
+        </Abstract>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Reynolds</LastName>
+            <ForeName>Andrew</ForeName>
+            <Initials>A</Initials>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Mann</LastName>
+            <ForeName>Jim</ForeName>
+            <Initials>J</Initials>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+          <PublicationType UI="D013485">Meta-Analysis</PublicationType>
+          <PublicationType UI="D016454">Review</PublicationType>
+          <PublicationType UI="D016453">Systematic Review</PublicationType>
+        </PublicationTypeList>
+      </Article>
+    </MedlineCitation>
+    <PubmedData>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">30638909</ArticleId>
+        <ArticleId IdType="doi">10.1016/S0140-6736(18)31809-9</ArticleId>
+      </ArticleIdList>
+    </PubmedData>
+  </PubmedArticle>
+  <!-- Duplicate of first article to exercise deduplication -->
+  <PubmedArticle>
+    <MedlineCitation Status="MEDLINE" Owner="NLM">
+      <PMID Version="1">29902436</PMID>
+      <Article PubModel="Print-Electronic">
+        <Journal>
+          <ISSN IssnType="Electronic">1931-3128</ISSN>
+          <JournalIssue CitedMedium="Internet">
+            <Volume>23</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2018</Year>
+              <Month>Jun</Month>
+              <Day>13</Day>
+            </PubDate>
+          </JournalIssue>
+          <Title>Cell Host &amp; Microbe</Title>
+          <ISOAbbreviation>Cell Host Microbe</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>The Impact of Dietary Fiber on Gut Microbiota in Host Health and Disease</ArticleTitle>
+        <Abstract>
+          <AbstractText>Dietary fiber has a key role in shaping the gut microbiota.</AbstractText>
+        </Abstract>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Makki</LastName>
+            <ForeName>Kassem</ForeName>
+            <Initials>K</Initials>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+          <PublicationType UI="D016454">Review</PublicationType>
+        </PublicationTypeList>
+      </Article>
+    </MedlineCitation>
+    <PubmedData>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">29902436</ArticleId>
+        <ArticleId IdType="doi">10.1016/j.chom.2018.05.012</ArticleId>
+      </ArticleIdList>
+    </PubmedData>
+  </PubmedArticle>
+  <!-- Article with missing abstract and missing DOI -->
+  <PubmedArticle>
+    <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+      <PMID Version="1">30202317</PMID>
+      <Article PubModel="Electronic">
+        <Journal>
+          <ISSN IssnType="Electronic">1559-8287</ISSN>
+          <JournalIssue CitedMedium="Internet">
+            <Volume>12</Volume>
+            <Issue>6</Issue>
+            <PubDate>
+              <Year>2018</Year>
+              <Month>Jan</Month>
+              <Day>01</Day>
+            </PubDate>
+          </JournalIssue>
+          <Title>American Journal of Lifestyle Medicine</Title>
+          <ISOAbbreviation>Am J Lifestyle Med</ISOAbbreviation>
+        </Journal>
+        <ArticleTitle>Closing America's Fiber Intake Gap: Communication Strategies From a Food and Fiber Summit</ArticleTitle>
+        <AuthorList CompleteYN="Y">
+          <Author ValidYN="Y">
+            <LastName>Quagliani</LastName>
+            <ForeName>Diane</ForeName>
+            <Initials>D</Initials>
+          </Author>
+          <Author ValidYN="Y">
+            <LastName>Felt-Gunderson</LastName>
+            <ForeName>Patricia</ForeName>
+            <Initials>P</Initials>
+          </Author>
+        </AuthorList>
+        <Language>eng</Language>
+        <PublicationTypeList>
+          <PublicationType UI="D016428">Journal Article</PublicationType>
+        </PublicationTypeList>
+      </Article>
+    </MedlineCitation>
+    <PubmedData>
+      <ArticleIdList>
+        <ArticleId IdType="pubmed">30202317</ArticleId>
+      </ArticleIdList>
+    </PubmedData>
+  </PubmedArticle>
+</PubmedArticleSet>
